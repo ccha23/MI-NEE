@@ -1,0 +1,5 @@
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter nbextension enable --py widgetsnbextension
+wget https://www.dropbox.com/s/igkgc611u02tgli/other_results.zip
+unzip other_results
+sh setup_other_results.sh
