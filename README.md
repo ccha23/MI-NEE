@@ -22,3 +22,7 @@ See [binder/requirements.txt](./binder/requirements.txt)
 - [`model`](./model) folder contains the code of the mutual information estimators.
   - [`mine.py`](./model/mine.py) contains the code for MINE.
   - [`minee.py`](./model/minee.py) contains the code for MI-NEE
+
+## Reference
+
+Chung Chan, Ali Al-Bashabsheh, Hing Pang Huang, Michael Lim, Da Sun Handason Tam, and Chao Zhao. "Neural Entropic Estimation: A faster path to mutual information estimation." arXiv preprint [arXiv:1905.12957](https://arxiv.org/abs/1905.12957) (2019).
