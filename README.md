@@ -1,6 +1,8 @@
 # MI-NEE 
 
 Mutual Information Neural Entropic Estimation.
+- [Presentation slides](https://ccha23.github.io/info-game-clustering/)
+- [arXiv paper](https://arxiv.org/abs/1905.12957)
 
 ## Dependencies
 
