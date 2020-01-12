@@ -10,13 +10,13 @@ See [binder/requirements.txt](./binder/requirements.txt)
 
 ## Experimental results in Jupyter notebook
 
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/MixedGaussian_MINE.ipynb) Mixed Gaussian with MINE
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/MixedGaussian_MINEE.ipynb) Mixed Gaussian with MI-NEE
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/MixedGaussian_MINEE_MINE.ipynb) Mixed Gaussian with cross training by MI-NEE followed by MINE
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/Gaussian_MINE.ipynb) Higher dimensional Gaussian with MINE
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/Gaussian_MINEE.ipynb) Higher dimensional Gaussian with MI-NEE
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/Gaussian_MINEE_MINE.ipynb) Higher dimensional Gaussian with crossing training by MI-NEE followed by MINE
-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/other_results.ipynb) Other experimental results 
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/MixedGaussian_MINE.ipynb) [Mixed Gaussian with MINE](./MixedGaussian_MINE.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/MixedGaussian_MINEE.ipynb) [Mixed Gaussian with MI-NEE](./MixedGaussian_MINEE.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/MixedGaussian_MINEE_MINE.ipynb) [Mixed Gaussian with cross training by MI-NEE followed by MINE](./MixedGaussian_MINEE_MINE.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/Gaussian_MINE.ipynb) [Higher dimensional Gaussian with MINE](./Gaussian_MINE.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/Gaussian_MINEE.ipynb) [Higher dimensional Gaussian with MI-NEE](./MixedGaussian_MINEE.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/Gaussian_MINEE_MINE.ipynb) [Higher dimensional Gaussian with crossing training by MI-NEE followed by MINE](Gaussian_MINEE_MINE.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ccha23/MI-NEE/master?urlpath=lab/tree/other_results.ipynb) Other experimental results
 
 ## Directory structure
 
