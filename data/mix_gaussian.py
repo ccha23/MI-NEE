@@ -11,7 +11,7 @@ class MixedGaussian():
     # Rho[0] correlation for the first bivariate gaussian and Rho[1] for the second
     # Mode[0] separation between the two bivariate gaussians along the x-axis and Mode[1] is the separation along the y-axis
 
-    def __init__(self, sample_size=400, mean1=0, mean2=0, rho1=0.9, rho2=-0.9, mix=0.5):
+    def __init__(self, sample_size=400, mean1=0, mean2=0, rho1=0.9, rho2=-0.9, mix=0.5, mix2=0.5):
         # sample_size is the number of sample representing the distribution
         # mix: mixing ratio of two bivariate gaussian in between 0 and 1
         # Rho1: correlation for the first bivariate gaussian
@@ -22,6 +22,7 @@ class MixedGaussian():
         self.covMat2 = np.array([[1, rho2], [rho2, 1]])
         self.sample_size = sample_size
         self.mix = mix
+        self.mix2 = mix2
         self.mu = np.array([mean1, mean2])
         self.name = 'bimodal'
 
@@ -82,3 +83,45 @@ class MixedGaussian():
                       lim, lim, lambda x: -lim, lambda x: lim)
 
         return hx[0] + hy[0] - hxy[0]
+
+    @property
+    def mix_ground_truth(self):
+        # fx and fy are  x and y marginal probability density functions(pdf) of mix-gaussian distribution
+        # fxy is the joint probability density function of mix-gaussian distribution
+        # the mutual information ground truth is the difference between sum of entropy of individual variables and joint entropy of all variables
+        # the entropies are computed by integrating the expectation of pdf of variables involved
+        mix, mix2, covMat1, covMat2, mu = self.mix, self.mix2, self.covMat1, self.covMat2, self.mu
+
+        def fxy1(x, y):
+            X = np.array([x, y])
+            temp1 = np.matmul(
+                np.matmul(X-mu, np.linalg.inv(covMat1)), (X-mu).transpose())
+            temp2 = np.matmul(
+                np.matmul(X+mu, np.linalg.inv(covMat2)), (X+mu).transpose())
+            return mix*np.exp(-.5*temp1) / (2*np.pi * np.sqrt(np.linalg.det(covMat1))) \
+                + (1-mix)*np.exp(-.5*temp2) / \
+                (2*np.pi * np.sqrt(np.linalg.det(covMat2)))
+
+        def fxy2(x, y):
+            X = np.array([x, y])
+            temp1 = np.matmul(
+                np.matmul(X+mu, np.linalg.inv(covMat1)), (X+mu).transpose())
+            temp2 = np.matmul(
+                np.matmul(X-mu, np.linalg.inv(covMat2)), (X-mu).transpose())
+            return mix*np.exp(-.5*temp1) / (2*np.pi * np.sqrt(np.linalg.det(covMat1))) \
+                + (1-mix)*np.exp(-.5*temp2) / \
+                (2*np.pi * np.sqrt(np.linalg.det(covMat2)))
+
+        def fxy(x, y):
+            return mix2*fxy1(x, y) + (1-mix2)*fxy2(x, y)
+
+        lim = np.inf
+        hxy = dblquad(lambda x, y: -xlogy(fxy(x, y), fxy(x, y)), -
+                      lim, lim, lambda x: -lim, lambda x: lim)
+        hxy1 = dblquad(lambda x, y: -xlogy(fxy1(x, y), fxy1(x, y)), -
+                      lim, lim, lambda x: -lim, lambda x: lim)
+        hxy2 = dblquad(lambda x, y: -xlogy(fxy2(x, y), fxy2(x, y)), -
+                      lim, lim, lambda x: -lim, lambda x: lim)
+        con_entropy = mix2*hxy1[0] + (1-mix2)*hxy2[0]
+#       print(hxy[0], hxy1[0], hxy2[0])    
+        return hxy[0] - con_entropy
